@@ -1,13 +1,14 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const bookSchema = new Schema({
-  title: { type: String, required: true },
-  author: { type: String, required: true },
-  synopsis: String,
-  date: { type: Date, default: Date.now }
+// this will be our data base's data structure 
+const BookSchema = new Schema({
+  title: String,
+  authors: String,
+  description: String,
+  thumbnail: String,
+  purchase: String
 });
 
-const Book = mongoose.model("Book", bookSchema);
-
-module.exports = Book;
+// export the new Schema so we could modify it using Node.js
+module.exports = mongoose.model("googlebooks",BookSchema);
